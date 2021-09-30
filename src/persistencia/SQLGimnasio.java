@@ -15,10 +15,10 @@ public long adicionarGimnasio (PersistenceManager pm, String pId )
 	 * @param idSalon
 	 * @return
 	 */
- 	public long eliminarPiscinaPorId (PersistenceManager pm, String idInternet)
+ 	public long eliminarGimnasioPorId (PersistenceManager pm, String id)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.PISCINA + " WHERE id = ?");
-        q.setParameters(idInternet);
+        Query q = pm.newQuery(SQL, "DELETE FROM " + pp.GIMNASIO + " WHERE id = ?");
+        q.setParameters(id);
         return (long) q.executeUnique();            
 	}
  	
@@ -27,11 +27,11 @@ public long adicionarGimnasio (PersistenceManager pm, String pId )
   * @param pm
   * @return
   */
-	public List<Internet> darPiscina (PersistenceManager pm)
+	public List<Gimnasio> darGimnasio (PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.PISCINA);
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.GIMNASIO);
 		q.setResultClass(Internet.class);
-		return (List<Internet>) q.executeList();
+		return (List<Gimnasio>) q.executeList();
 	}
 
 }
